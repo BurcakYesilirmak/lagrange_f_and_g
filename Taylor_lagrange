@@ -1,0 +1,43 @@
+    #include<stdio.h>
+    #include<math.h>    
+     int main(int argc, char **argv) {
+    
+    double r0[]= { 1131.340, -2282.343, 6672.423}, r[3];    // (km)
+    double v0[]= { -5.64305, 4.30333, 2.42879}, v[3];    // (km/s)
+    double k3=0.01720209895, mu , f, g, df, dg, dt, norm_r0, norm_v0;
+    double a, b, c, d, e, k, l, m, n, t, r_v;
+    int i;
+    dt=0.1;
+   //mu=k3*k3;
+    mu = 398600;
+    norm_v0 = sqrt(v0[0]* v0[0] + v0[1] * v0[1] + v0[2] * v0[2]);
+    norm_r0 = sqrt(r0[0]* r0[0] + r0[1] * r0[1] + r0[2] * r0[2]);
+    r_v =  r0[0]* r0[0] + v0[1] * v0[1] + r0[2] * v0[2] ;
+     // for f 
+    a= mu*dt*dt/(2*pow(norm_r0,3));
+    b= mu*r_v*dt*dt*dt/(2*pow(norm_r0,5));
+    c= mu*pow(dt,4)*(-2*mu/pow(norm_r0,6)+ 3*norm_v0*norm_v0/pow(norm_r0,5) - 15*r_v*r_v/pow(norm_r0,7));
+    // for df
+    k= -dt*mu/pow(norm_r0,3);
+    l= 3*dt*dt*mu/(2*pow(norm_r0,5));
+    m= mu*pow(dt,3)*(-2*mu/pow(norm_r0,6)+ 3*norm_v0*norm_v0/pow(norm_r0,5) - 15*r_v*r_v/pow(norm_r0,7));
+    // for g  
+    d= mu*dt*dt*dt/(6*pow(norm_r0,3));
+    e= mu*pow(dt,4)*r_v/(4*pow(norm_r0,5));
+    // for dg
+    n = mu*dt*dt/(2*pow(norm_r0,3));
+    t= mu*pow(dt,3)*r_v/pow(norm_r0,5);
+
+    // substitution
+    f= 1- a + b + c/24;
+    g = dt- d + e ;
+    df =  -k + l + m/6;
+    dg = 1- n + t;
+    for(i=0; i<3; i++) {
+    r[i] = r0[i]*f + v0[i]*g;
+    v[i] = r0[i]*df + v0[i]*dg; }
+      printf("Position after dt = %.8le*i + %.8le*j + %.8f k[km] \n",r[0],r[1],r[2]);
+      printf("Velocitiy after dt = %.8le*i + %.8le*j + %.8f k[km] \n",v[0],v[1],v[2]);d %d %d %lf \n",1, ii, kk, p);
+      } } 
+   return 0; 
+    }
