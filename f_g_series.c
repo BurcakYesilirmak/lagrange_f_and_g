@@ -1,3 +1,6 @@
+// This code calculates 2BP using STUMPFF FUNCTION known as (Cz, Sz)
+// Burcak Yesilirmak
+
 
     #include<stdio.h>
     #include<math.h>
