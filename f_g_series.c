@@ -1,4 +1,4 @@
-// This code calculates 2BP using STUMPFF FUNCTION known as (Cz, Sz)
+// This code calculates 2BP using STUMPFF FUNCTION known its parameteres as (Cz, Sz)
 // Burcak Yesilirmak
 
 
