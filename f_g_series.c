@@ -76,7 +76,7 @@
     V_i = df*r0[0] + dg*v0[0];
     V_j = df*r0[1] + dg*v0[1];
     V_k = df*r0[2] + dg*v0[2];
-    printf("Position after %4.2f [min] R = %4.2f*i + %4.2f*j + %4.2f*k[km] \n",dt/60,R_i,R_j,R_k);
+    printf("Position after %4.2f [min] R = %4.2f*i + %4.2f*j + %4.2f*k[km]   \n",  dt/60,R_i,R_j,R_k);
     printf("Velocity after %4.2f [min] V = %4.3f*i + %4.3f*j + %4.2f*k[km/s] \n",dt/60,V_i,V_j,V_k);
     }
 
